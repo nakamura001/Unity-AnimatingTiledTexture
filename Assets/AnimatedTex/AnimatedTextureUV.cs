@@ -5,12 +5,12 @@ public class AnimatedTextureUV : MonoBehaviour
 {
 	//vars for the whole sheet 
 	// スプライトシートに配置されたキャラクタの数
-	public int colCount =  4;	// 横方向の数
-	public int rowCount =  4;	// 縦方向の数
+	public int colCount =  4; // 横方向の数
+	public int rowCount =  4; // 縦方向の数
 	
 	//vars for animation
 	public int rowNumber  =  0; // 縦方向のオフセット値
-	public int colNumber = 0; 	// 横方向のオフセット値
+	public int colNumber = 0; // 横方向のオフセット値
 	public int totalCells = 4;
 	public int fps	 = 10;
 	//Maybe this should be a private var
@@ -30,7 +30,7 @@ public class AnimatedTextureUV : MonoBehaviour
 		// It's used for GUI to have not power of two textures and gain space, for example.
 		// Here, we have an atlas with 16 faces
 		// Calculate index
-	  int index  = (int)(Time.time * fps);
+		int index  = (int)(Time.time * fps);
 		
 		// Repeat when exhausting all cells
 		index = index % totalCells; // 最後のindexに行った後に0に戻るように「index % 総数」を行う 
@@ -43,8 +43,8 @@ public class AnimatedTextureUV : MonoBehaviour
 		Vector2 size =  new Vector2(sizeX,sizeY);
 		
 		// split into horizontal and vertical index
-		var uIndex = index % colCount;	// colCountの余りが横(U)方向の座標位置を示す
-		var vIndex = index / colCount;	//  colCountで割ったものが縦(V)方向の座標位置を示す
+		var uIndex = index % colCount; // colCountの余りが横(U)方向の座標位置を示す
+		var vIndex = index / colCount; //  colCountで割ったものが縦(V)方向の座標位置を示す
 	 
 		// build offset
 		// v coordinate is the bottom of the image in opengl so we need to invert.
